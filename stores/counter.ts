@@ -1,49 +1,39 @@
-const delay = (t: number) => new Promise((r) => setTimeout(r, t))
-
 export const useCounter = defineStore('counter', {
   state: () => ({
-    n: 2,
-    incrementedTimes: 0,
-    decrementedTimes: 0,
-    numbers: [] as number[],
+    result: "",
   }),
 
-  getters: {
-    double: (state) => state.n * 2,
-  },
-
   actions: {
-    increment(amount = 1) {
-      this.incrementedTimes++
-      this.n += amount
-    },
+    update() {
+      var textarea = document.getElementById("textarea2")
+      var text = textarea.value;
+      var sentences = text.match( /[^\.!\?]+[\.!\?]+/g );
+      
+      var result = "";
+      for (const sentence of sentences) {
+        var word_index = 0;
+        var clean = sentence.trim();    
 
-    changeMe() {
-      console.log('change me to test HMR')
-    },
+        var words = clean.split(" ")
+        for (const word of words) {
+          if (word_index < 50) {
+            var length = word_index
+          } else {
+            var length = "overflow"
+          }
+          result += "<span class='length-" + length + "'>" + word + " </span>";                
 
-    async fail() {
-      const n = this.n
-      await delay(1000)
-      this.numbers.push(n)
-      await delay(1000)
-      if (this.n !== n) {
-        throw new Error('Someone changed n!')
+          if (word.endsWith(",")) {
+            word_index = word_index - 5
+          }
+          if (word.endsWith("—")) {
+            word_index = word_index - 10
+          }
+          word_index += 1;
+        }
       }
-
-      return n
-    },
-
-    async decrementToZero(interval: number = 300) {
-      if (this.n <= 0) return
-
-      while (this.n > 0) {
-        this.$patch((state) => {
-          state.n--
-          state.decrementedTimes++
-        })
-        await delay(interval)
-      }
+      
+      this.result = result;
     },
   },
 })
