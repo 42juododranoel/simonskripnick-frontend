@@ -1,0 +1,37 @@
+/* Viewports */
+
+$width-sm: 0px;
+$width-md: 1000px;
+$width-lg: 2000px;
+
+$viewports: (
+  sm: $width-sm,
+  md: $width-md,
+  lg: $width-lg,
+);
+
+
+/* Fonts */
+
+$font-family-sans: 'PT Sans', sans-serif;
+$font-family-serif: 'PT Serif', serif;
+$font-family-caption: 'PT Sans Caption', sans-serif;
+$font-family-mono: 'Fira Code', monospace;
+
+$font-size-sm: 18px;
+$font-size-lg: 27px;
+
+$line-height-sm: 27px;
+$line-height-lg: 41px;
+
+/* Books */
+
+$spread-header-size-sm: calc(100vh / 9 / 2);
+$spread-footer-size-sm: calc(100vh / 9 / 2 * 1.5);
+$spread-header-size-md: calc(100vh / 9 / 2 * 1.5);
+$spread-footer-size-md: calc(100vh / 9 / 2 * 1.5 * 2);
+
+$spread-inner-padding-md: calc(100vw / 2 / 9 * 0.75 * 2);
+
+$spread-outer-padding-sm: calc(100vw / 2 / 9 * 0.75);
+$spread-outer-padding-md: calc(100vw / 2 / 9 * 1.5);

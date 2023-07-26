@@ -1,0 +1,52 @@
+// Viewport and field variables.
+
+$grid-column-count: 16;
+
+
+// Make row store 16 columns
+
+.row {
+	display: grid;
+  grid-template-columns: repeat($grid-column-count, 1fr);
+}
+
+
+// Let layout shrink webpage from left and right
+
+.layout_blog {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: $width-md) {
+  .layout_blog {
+    margin-left: 12vw;
+    margin-right: 12vw;
+  }
+}
+
+
+// Force cols and offs span all screen on sm
+// Example: col-8-md becomes same fullscreen as col-sm
+
+[class^='col-'],
+[class^='off-'] { grid-column: 1 / -1 }
+
+
+// Generate col-NUMBER-VIEWPORT and off-NUMBER-VIEWPORT:
+// col, col-md, col-lg
+// col-1…16, col-1…16-md, col-1…16-lg
+// off-1…16, off-1…16-md, off-1…16-lg
+
+@each $viewport, $width in $viewports {
+  $infix: get-breakpoint-infix($viewport);
+
+  @media (min-width: $width) {
+    .col#{$infix} { grid-column: 1 / -1 }
+
+    @for $span from 1 through $grid-column-count {
+      .off-#{$span}#{$infix} { grid-column-start: $span + 1 }
+      .col-#{$span}#{$infix} { grid-column-end: span $span }
+    }
+  }
+}

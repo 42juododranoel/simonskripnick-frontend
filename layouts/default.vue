@@ -1,21 +1,9 @@
 <template>
-  <header>
-    <h1>Typeflowrhyme Editor</h1>
-    <p>Currently in development.</p>
-  </header>
-  
-  <template v-if="route.path !== '/'">
-    <router-link to="/">→ Back Home</router-link>
-    <hr />
-  </template>
+  <header></header>
   
   <slot />
-  
-  <hr />
-  
-  <footer>
-    <a href="https://github.com/42juododranoel">by Simon Skripnik</a>
-  </footer>
+
+  <footer></footer>
 </template>
 
 <script setup lang="ts">
