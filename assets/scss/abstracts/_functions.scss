@@ -1,0 +1,3 @@
+@function get-breakpoint-infix($viewport) {
+  @return if($viewport == sm, '', '-#{$viewport}');
+}

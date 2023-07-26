@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   target: "static",
-  css: ['~/assets/main.css'],
+  css: [
+    '~/assets/scss/main.scss',
+    '~/assets/scss/custom.scss'
+  ],
   modules: [
     '@pinia/nuxt',
   ],
@@ -10,7 +13,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/typeflowrhyme/',
+    baseURL: '/simonskripnick-frontend/',
   },
 
   pinia: {
