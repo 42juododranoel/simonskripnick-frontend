@@ -1,11 +1,13 @@
 export default defineNuxtConfig({
-  target: "static",
+  pages: true,
+  
   css: [
     '~/assets/scss/main.scss',
     '~/assets/scss/custom.scss'
   ],
   modules: [
     '@pinia/nuxt',
+    '@nuxtjs/sanity', 
   ],
 
   imports: {
@@ -13,7 +15,16 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/simonskripnick-frontend/',
+    head: {
+      title: "Simon Skripnick’s Website",
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    }
+  },
+
+  sanity: {
+    projectId: 'g03uathm',
+    dataset: 'production',
   },
 
   pinia: {
