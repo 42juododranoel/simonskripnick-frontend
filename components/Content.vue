@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-// import Illustration from '~/components/typography/Illustration.vue'
 import { resolveComponent } from 'vue'
 
 const props = defineProps({
@@ -13,7 +12,7 @@ const props = defineProps({
 const serializers = {
   types: {
     // image: Illustration,
-    code: resolveComponent('Code'),
+    code: resolveComponent('Codus'),
   },
   styles: {
     h2: resolveComponent('Heading2'),

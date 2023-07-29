@@ -1,6 +1,6 @@
 <template>
   <div class="h3-wrapper">
-    <h3 v-typograph-content>
+    <h3>
       <slot />
     </h3>
   </div>

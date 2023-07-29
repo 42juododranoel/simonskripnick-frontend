@@ -21,19 +21,23 @@ const emotionClass = `embed_code_emotion_${props.emotion}`
 
 .embed {
   margin-bottom: 36px;
+  margin-top: 27px;
 }
 
 .embed_code {
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: #bebebe;
+
   pre {
     font-family: $font-family-mono;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-left: 18px;
   }
 
   code {
     white-space: pre;
-    padding-left: 18px;
-  }
-
-  .hljs {
     background-color: unset;
   }
 }

@@ -1,10 +1,9 @@
 <template>
-  <div class="row">
-    <div class="col-8-md">
-      <Heading1>{{ content.post.title }}</Heading1>
-      <Content :blocks="content.post.content" />
-    </div>
-  </div>
+  <BlogPost 
+    :title="content.post.title" 
+    :description="content.post.description" 
+    :content="content.post.content"
+  ></BlogPost>
 </template>
 
 <script setup lang="ts">
