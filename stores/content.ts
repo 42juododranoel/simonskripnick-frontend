@@ -5,7 +5,8 @@ const DEFAULT_CATEGORY = {
 
 export const useContent = defineStore('content', {
     state: () => ({
-        category: DEFAULT_CATEGORY as object,
+        category: {} as object,
+        book: {} as object,
         post: {} as object,
         categories: [] as object[],
         posts: [] as object[],
@@ -51,6 +52,12 @@ export const useContent = defineStore('content', {
             const query = groq`*[_type == "post" && slug.current == "${post}"][0] {...}`
 			const { data } = await useSanityQuery(query)
 			this.post = data.value
+        },          
+
+        async getBook(book: String) {
+            const query = groq`*[_type == "book" && slug.current == "${book}"][0] {..., nodes[]{..., firstPage->, secondPage->}}`
+            const { data } = await useSanityQuery(query)
+			this.book = data.value
         },          
     },
 })
