@@ -24,7 +24,7 @@
               :title="post.title"
               :description="post.description"
               :slug="post.slug"
-              :tags="post.tags"
+              :tags="post.labels"
               :category="post.category"
               :do-show-category="!category"
               :published-at="post.publishedAt"
