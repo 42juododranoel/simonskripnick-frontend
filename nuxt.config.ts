@@ -30,4 +30,10 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: ['defineStore', 'acceptHMRUpdate'],
   },
+
+  nitro: {
+    routeRules: {
+      '/proxy/editor/**': {proxy: {to: 'https://simonskripnick-editor.onrender.com/**'}},
+    }
+  }
 })

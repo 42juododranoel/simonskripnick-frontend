@@ -2,17 +2,17 @@
   <div class="post">
     <div class="row">
       <div class="col-8-md">
-        <Heading1>{{ title }}</Heading1>
+        <ContentHeading1 v-typograph-content>{{ title }}</ContentHeading1>
       </div>
     </div>
     <div class="row">
       <div class="col-10-md">
-        <Paragraph>{{ description }}</Paragraph>
+        <ContentParagraph v-typograph-content>{{ description }}</ContentParagraph>
       </div>
     </div>
     <div class="row">
       <div class="col-8-md">
-        <Content :blocks="content" />
+        <ContentContainer :blocks="content" />
       </div>
     </div>
   </div>

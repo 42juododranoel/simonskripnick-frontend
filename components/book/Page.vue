@@ -1,6 +1,6 @@
 <template>
   <div class="page" :class="{ 'page_with-leadin': withLeadin, 'page_with-initial': withInitial }">
-    <Content :blocks="content" />
+    <ContentContainer :blocks="content" />
   </div>
 </template>
 

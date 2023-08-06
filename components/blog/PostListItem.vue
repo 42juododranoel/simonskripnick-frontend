@@ -2,10 +2,10 @@
   <div class="post-list__item">
     <NuxtLink class="post-list__item--content" :to="path">
       <div class="post-list__item--title">
-        <Heading2>{{ title }}</Heading2>
+        <ContentHeading2 v-typograph-content>{{ title }}</ContentHeading2>
       </div>
       <div class="post-list__item--description">
-        <Paragraph>{{ description }}</Paragraph>
+        <ContentParagraph v-typograph-content>{{ description }}</ContentParagraph>
       </div>
     </NuxtLink>
     <div class="post-list__item--meta">
@@ -18,6 +18,7 @@
         prefix="#"
         :postfix="tags === undefined || tags.length == 0 ? undefined : ','"
         :target="`/${category.slug.current}`"
+        v-typograph-content
       >
         {{ category.title }}
       </Linkus>
@@ -28,6 +29,7 @@
         prefix="#"
         :postfix="tagIndex + 1 !== tags.length ? ',' : undefined"
         :target="`/${category.slug.current}/tags/${tag.slug.current}`"
+        v-typograph-content
       >
         {{ tag.title }}
       </Linkus>

@@ -1,16 +1,16 @@
 <template>
   <div class="editor">
-    <Paragraph 
-      v-for="(paragraph, index) in props.paragraphs" 
+    <ContentParagraph 
+      v-for="(ContentParagraph, index) in props.ContentParagraphs" 
       :key="index"
-      :sentences="paragraph.sentences"
+      :sentences="ContentParagraph.sentences"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  paragraphs: Array,
+  ContentParagraphs: Array,
 })
 
 </script>

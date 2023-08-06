@@ -2,7 +2,7 @@
   <div class="post-list">
     <div class="row">
       <div class="col-8-md">
-        <Heading1 v-if="category">{{ category.title }}</Heading1>
+        <ContentHeading1 v-typograph-content v-if="category">{{ category.title }}</ContentHeading1>
         <div v-if="tags" class="post-list--tags">
           <span class="post-list--tags-prefix">Tags:</span>
           <span class="post-list--tags-content">
@@ -13,6 +13,7 @@
               prefix="#"
               :postfix="tagIndex + 1 !== tags.length ? ',' : undefined"
               :target="`/${tag.category.slug.current}/tags/${tag.slug.current}`"
+              v-typograph-content
             >
               {{ tag.title }}
             </Linkus>

@@ -1,5 +1,5 @@
 <template>
-  <div class="paragraph">
+  <div class="ContentParagraph">
     <Sentence 
       v-for="(sentence, index) in props.sentences" 
       :key="index"
