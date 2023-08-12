@@ -12,12 +12,10 @@ export const useEditor = defineStore('editor', {
         body: {content: content}
       })
       if (data.value) {
-        console.log(data.value)
         this.content = data.value.content
         this.paragraphs = data.value.paragraphs
         this.context = data.value.context
       }
-
     },
   },
 })
