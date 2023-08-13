@@ -50,27 +50,23 @@ const props = defineProps({
 @import '~/assets/scss/abstracts/_variables.scss';
 
 .post-list {
-  &--header {
+  .post-list--header {
     margin-bottom: 72px;
   }
 
-  &--description {
+  .post-list--description {
     margin-bottom: 27px;
   }
 
-  &--tags {
-    font-family: $font-family-sans;
+  .post-list--tags {
     margin-bottom: 63px;
-
-    &::after {
-      display: block;
-      content: '';
-      clear: both;
-    }
   }
 
-  &--tags-prefix {
-    float: left;
+  .post-list--tag {
+    padding-right: 8px;
+  }
+
+  .post-list--tags-prefix {
     padding-right: 10px;
   }
 }

@@ -13,9 +13,7 @@
 }
 
 body {
-  font-family: $font-family-serif;
   color: var(--text-color);
-  background: white;
 }
 
 @media (min-width: $width-sm) {

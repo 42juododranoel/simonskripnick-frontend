@@ -20,15 +20,10 @@ const props = defineProps({
 .linkus--wrapper {
   color: var(--linkus-text-color);
 
-  .linkus--prefix {
-    float: left;
-  }
-
   .linkus--text {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: var(--linkus-underline-color);
-    float: left;
   }
 
   .linkus--content {

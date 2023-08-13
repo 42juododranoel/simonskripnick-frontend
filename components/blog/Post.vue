@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8-md">
+      <div class="col-8-md post--content">
         <ContentContainer :blocks="content" />
       </div>
     </div>
@@ -40,6 +40,10 @@ const props = defineProps({
 
   .h3-wrapper {
     margin-top: 45px;
+  }
+
+  .post--content .p-wrapper {
+    margin-bottom: 36px;
   }
 }
 </style>

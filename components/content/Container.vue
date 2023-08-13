@@ -18,6 +18,7 @@ const serializers = {
   },
   types: {
     code: resolveComponent('ContentCode'),
+    tweet: resolveComponent('ContentTweet'),
   },
 }
 </script>

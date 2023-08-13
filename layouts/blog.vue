@@ -10,3 +10,11 @@
 const content = useContent()
 content.listCategories()
 </script>
+
+<style lang="scss">
+@import '~/assets/scss/abstracts/_variables.scss';
+
+body {
+  font-family: $font-family-sans;
+}
+</style>
