@@ -11,6 +11,12 @@
 
 body {
   font-family: $font-family-serif;
+  hyphens: manual;
 }
 
+@media (min-width: $width-md) {
+  body {
+    hyphens: none;
+  }
+}
 </style>

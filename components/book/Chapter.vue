@@ -8,17 +8,17 @@
 
     <div class="chapter-body-content">
       <h1 class="chapter-title">
-        <span v-typograph-content class="chapter-title-prefix">
+        <span class="chapter-title-prefix">
           {{ titlePrefix }}
         </span>
         <br />
         <br />
         <br />
-        <span v-typograph-content class="chapter-title-content">
+        <span class="chapter-title-content">
           {{ title }}
         </span>
       </h1>
-      <h2 v-typograph-content class="chapter-subtitle">{{ subtitle }}</h2>
+      <h2 class="chapter-subtitle">{{ subtitle }}</h2>
       <!-- <Picture v-if="image" :asset="image.asset" /> -->
     </div>
 

@@ -8,9 +8,9 @@
 
     <div class="cover-body-content">
       <h1 class="cover-titles">
-        <span v-typograph-content class="cover-titles-title">{{ title }}</span>
-        <div v-typograph-content v-if="middle" class="cover-titles-middle">{{ middle }}</div>
-        <div v-typograph-content v-if="subtitle" class="cover-titles-subtitle">{{ subtitle }}</div>
+        <span class="cover-titles-title">{{ title }}</span>
+        <div v-if="middle" class="cover-titles-middle">{{ middle }}</div>
+        <div v-if="subtitle" class="cover-titles-subtitle">{{ subtitle }}</div>
       </h1>
       <!-- <Picture v-if="image" :asset="image.asset" /> -->
     </div>

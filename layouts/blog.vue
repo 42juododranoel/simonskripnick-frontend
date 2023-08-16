@@ -17,4 +17,18 @@ content.listCategories()
 body {
   font-family: $font-family-sans;
 }
+
+.layout_blog {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: $width-md) {
+  .layout_blog {
+    margin-left: 14vw;
+    margin-right: 14vw;
+  }
+}
+
+
 </style>

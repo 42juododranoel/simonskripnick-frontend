@@ -11,21 +11,6 @@ $grid-column-count: 16;
 }
 
 
-// Let layout shrink webpage from left and right
-
-.layout {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-@media (min-width: $width-md) {
-  .layout {
-    margin-left: 14vw;
-    margin-right: 14vw;
-  }
-}
-
-
 // Force cols and offs span all screen on sm
 // Example: col-8-md becomes same fullscreen as col-sm
 

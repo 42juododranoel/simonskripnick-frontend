@@ -6,14 +6,31 @@ const DEFAULT_CATEGORY = {
 export const useContent = defineStore('content', {
     state: () => ({
         category: {} as object,
-        book: {} as object,
-        post: {} as object,
         categories: [] as object[],
         posts: [] as object[],
+        post: {} as object,
         tags: [] as object[],
+        tag: {} as object,
+        book: {} as object,
     }),
   
     actions: {
+        async setDefaultCategory() {
+			this.category = DEFAULT_CATEGORY
+        },
+
+        async setEmptyCategory() {
+			this.category = {}
+        },
+
+        async setEmptyTags() {
+			this.tags = []
+        },
+
+        async setEmptyTag() {
+			this.tag = {}
+        },
+
         async listCategories() {
 			const query = groq`*[_type == "category"] {...}`
             const { data } = await useSanityQuery(query)
@@ -32,10 +49,6 @@ export const useContent = defineStore('content', {
 			this.category = data.value
         },
 
-        async setDefaultCategory() {
-			this.category = DEFAULT_CATEGORY
-        },
-
         async listCategoryPosts(category: String) {
             const query = groq`*[_type == "post" && category->slug.current == "${category}"] {..., category->, labels[]->{..., category->{...}}} | order(publishedAt desc)`
 			const { data } = await useSanityQuery(query)
@@ -48,11 +61,23 @@ export const useContent = defineStore('content', {
 			this.tags = data.value
         },
 
+        async listCategoryTagPosts(category: String, label: String) {
+            const query = groq`*[_type == "post" && category->slug.current == "${category}" && count((labels[]->slug.current)[@ == "${label}"]) > 0] {..., category->, labels[]->{..., category->{...}}} | order(publishedAt desc)`
+			const { data } = await useSanityQuery(query)
+			this.posts = data.value
+        },
+
         async getPost(post: String) {
             const query = groq`*[_type == "post" && slug.current == "${post}"][0] {...}`
 			const { data } = await useSanityQuery(query)
 			this.post = data.value
-        },          
+        },
+
+        async getTag(label: String) {
+            const query = groq`*[_type == "label" && slug.current == "${label}"][0] {...}`
+			const { data } = await useSanityQuery(query)
+			this.tag = data.value
+        },
 
         async getBook(book: String) {
             const query = groq`*[_type == "book" && slug.current == "${book}"][0] {..., nodes[]{..., firstPage->, secondPage->}}`
