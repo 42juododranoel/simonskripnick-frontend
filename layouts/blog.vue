@@ -1,6 +1,9 @@
 <template>
   <div class="layout layout_blog">
-    <Header :category="content.category" :categories="content.categories" />
+    <Header 
+      :category="content.category" 
+      :categories="content.categories"
+    />
     <slot />
     <Footer :category="content.category" />
   </div>
@@ -8,7 +11,6 @@
 
 <script setup lang="ts">
 const content = useContent()
-content.listCategories()
 </script>
 
 <style lang="scss">
@@ -25,8 +27,8 @@ body {
 
 @media (min-width: $width-md) {
   .layout_blog {
-    margin-left: 14vw;
-    margin-right: 14vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col">
-      <BlogPostList :posts="content.posts" />
+      <BlogPostList :do-show-category="true" />
     </div>
   </div>
 </template>
@@ -11,7 +11,14 @@ definePageMeta({
   layout: "blog",
 })
 
+// Meta
 const content = useContent()
+content.$reset()
+
+// Header
+content.listCategories()
 content.setDefaultCategory()
+
+// Page
 content.listPosts()
 </script>

@@ -2,29 +2,24 @@
   <div class="post">
     <div class="row">
       <div class="col-8-md">
-        <ContentHeading1 v-typograph-content>{{ title }}</ContentHeading1>
+        <ContentHeading1 v-typograph-content>{{ content.post.title }}</ContentHeading1>
       </div>
     </div>
     <div class="row">
       <div class="col-10-md">
-        <ContentParagraph v-typograph-content>{{ description }}</ContentParagraph>
+        <ContentParagraph v-typograph-content>{{ content.post.description }}</ContentParagraph>
       </div>
     </div>
     <div class="row">
       <div class="col-8-md post--content">
-        <ContentContainer :blocks="content" />
+        <ContentContainer :blocks="content.post.content" />
       </div>
     </div>
   </div>
 </template>
 
-
 <script setup lang="ts">  
-const props = defineProps({
-  title: String,
-  description: String,
-  content: Array,
-})
+const content = useContent()
 </script>
 
 <style lang="scss">

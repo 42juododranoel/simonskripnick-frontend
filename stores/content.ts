@@ -68,7 +68,7 @@ export const useContent = defineStore('content', {
         },
 
         async getPost(post: String) {
-            const query = groq`*[_type == "post" && slug.current == "${post}"][0] {...}`
+            const query = groq`*[_type == "post" && slug.current == "${post}"][0] {..., labels[]->{..., category->{...}}}`
 			const { data } = await useSanityQuery(query)
 			this.post = data.value
         },
