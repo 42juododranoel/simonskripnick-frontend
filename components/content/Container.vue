@@ -9,16 +9,16 @@ const props = defineProps({
 
 const serializers = {
   styles: {
-    h2: resolveComponent('ContentHeading2'),
-    h3: resolveComponent('ContentHeading3'),
-    normal: resolveComponent('ContentParagraph'),
+    h2: resolveComponent("ContentHeading2"),
+    h3: resolveComponent("ContentHeading3"),
+    normal: resolveComponent("ContentParagraph"),
   },
   marks: {
-    'lead-in': resolveComponent('ContentLeadIn'),
+    "lead-in": resolveComponent("ContentLeadIn"),
   },
   types: {
-    code: resolveComponent('ContentCode'),
-    tweet: resolveComponent('ContentTweet'),
+    code: resolveComponent("ContentCode"),
+    tweet: resolveComponent("ContentTweet"),
   },
 }
 </script>

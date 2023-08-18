@@ -1,9 +1,6 @@
 <template>
   <div class="layout layout_blog">
-    <Header 
-      :category="content.category" 
-      :categories="content.categories"
-    />
+    <Header :category="content.category" :categories="content.categories" />
     <slot />
     <Footer :category="content.category" />
   </div>
@@ -14,7 +11,7 @@ const content = useContent()
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 body {
   font-family: $font-family-sans;
@@ -31,6 +28,4 @@ body {
     margin-right: 15vw;
   }
 }
-
-
 </style>

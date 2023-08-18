@@ -1,7 +1,11 @@
 <template>
   <div class="list--wrapper">
-    <ul v-if="listItem == 'bullet'"><ContentContainer :blocks="children"/></ul>
-    <ol v-if="listItem == 'number'"><ContentContainer :blocks="children"/></ol>
+    <ul v-if="listItem == 'bullet'">
+      <ContentContainer :blocks="children" />
+    </ul>
+    <ol v-if="listItem == 'number'">
+      <ContentContainer :blocks="children" />
+    </ol>
   </div>
 </template>
 
@@ -13,7 +17,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .list--wrapper {
   display: flex;
@@ -21,7 +25,8 @@ const props = defineProps({
   font-size: $font-size-sm;
   line-height: $line-height-sm;
 
-  ul, ol {
+  ul,
+  ol {
     margin-top: -12px;
     margin-bottom: -7px;
   }

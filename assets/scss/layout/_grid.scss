@@ -2,21 +2,20 @@
 
 $grid-column-count: 16;
 
-
 // Make row store 16 columns
 
 .row {
-	display: grid;
+  display: grid;
   grid-template-columns: repeat($grid-column-count, 1fr);
 }
-
 
 // Force cols and offs span all screen on sm
 // Example: col-8-md becomes same fullscreen as col-sm
 
-[class^='col-'],
-[class^='off-'] { grid-column: 1 / -1 }
-
+[class^="col-"],
+[class^="off-"] {
+  grid-column: 1 / -1;
+}
 
 // Generate col-NUMBER-VIEWPORT and off-NUMBER-VIEWPORT:
 // col, col-md, col-lg
@@ -27,11 +26,17 @@ $grid-column-count: 16;
   $infix: get-breakpoint-infix($viewport);
 
   @media (min-width: $width) {
-    .col#{$infix} { grid-column: 1 / -1 }
+    .col#{$infix} {
+      grid-column: 1 / -1;
+    }
 
     @for $span from 1 through $grid-column-count {
-      .off-#{$span}#{$infix} { grid-column-start: $span + 1 }
-      .col-#{$span}#{$infix} { grid-column-end: span $span }
+      .off-#{$span}#{$infix} {
+        grid-column-start: $span + 1;
+      }
+      .col-#{$span}#{$infix} {
+        grid-column-end: span $span;
+      }
     }
   }
 }

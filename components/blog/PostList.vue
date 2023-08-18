@@ -2,7 +2,9 @@
   <div class="post-list">
     <div class="row">
       <div class="col-8-md">
-        <ContentHeading1 v-typograph-content v-if="content.category.title">{{ content.category.title }}</ContentHeading1>
+        <ContentHeading1 v-typograph-content v-if="content.category.title">{{
+          content.category.title
+        }}</ContentHeading1>
         <div v-if="content.tags.length" class="post-list--tags">
           <span class="post-list--tags-prefix">Tags:</span>
           <span class="post-list--tags-content">
@@ -38,7 +40,7 @@
   </div>
 </template>
 
-<script setup lang="ts">  
+<script setup lang="ts">
 const props = defineProps({
   doShowCategory: Boolean,
 })
@@ -47,7 +49,7 @@ const content = useContent()
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .post-list {
   .post-list--header {

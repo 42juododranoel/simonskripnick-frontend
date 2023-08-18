@@ -33,16 +33,16 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .cover {
   display: grid;
   grid-template-columns: $spread-outer-padding-sm 1fr $spread-outer-padding-sm;
   grid-template-rows: $spread-header-size-sm 1fr $spread-footer-size-sm;
   grid-template-areas:
-    'header-left header-content header-right'
-    'body-left body-content body-right'
-    'footer-left footer-content footer-right';
+    "header-left header-content header-right"
+    "body-left body-content body-right"
+    "footer-left footer-content footer-right";
 
   &-header-left,
   &-body-left,
@@ -110,7 +110,7 @@ const props = defineProps({
     &-subtitle {
       font-size: 36px;
       font-style: italic;
-      line-height: 1.6,
+      line-height: 1.6;
     }
   }
 }

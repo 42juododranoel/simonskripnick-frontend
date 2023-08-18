@@ -21,7 +21,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 const props = defineProps({
   categories: Array,
@@ -30,7 +29,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .header {
   padding-top: 10px;

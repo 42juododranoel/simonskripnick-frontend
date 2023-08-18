@@ -2,7 +2,7 @@
   <span class="linkus--wrapper">
     <NuxtLink class="linkus--content" :to="target">
       <span v-if="prefix" class="linkus--prefix">{{ prefix }}</span>
-      <span class="linkus--text"><slot/></span>
+      <span class="linkus--text"><slot /></span>
       <span v-if="postfix" class="linkus--postfix">{{ postfix }}</span>
     </NuxtLink>
   </span>

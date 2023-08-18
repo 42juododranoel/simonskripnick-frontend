@@ -6,21 +6,34 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:eslint": "eslint --ext \".ts,.vue\" .",
+    "lint:prettier": "prettier . --check",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "format:eslint": "eslint --ext \".ts,.vue\" . --fix",
+    "format:prettier": "prettier . --write",
+    "format": "npm run format:eslint && npm run format:prettier"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/sanity": "^1.7.1",
     "@pinia/nuxt": "^0.4.11",
     "@types/node": "^18.16.19",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "dayjs": "^1.11.9",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "hyphen": "^1.6.6",
     "nuxt": "^3.6.3",
     "pinia": "^2.1.4",
+    "prettier": "3.0.2",
     "sass": "^1.64.1",
     "sass-loader": "^13.3.2",
+    "typescript": "^4.9.5",
     "typograf": "^7.1.0",
-    "vue-tweet": "^2.0.2",
-    "hyphen": "^1.6.6"
+    "vue-tweet": "^2.0.2"
   },
   "overrides": {
     "vue": "latest"

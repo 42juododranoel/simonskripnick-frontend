@@ -27,16 +27,16 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .volume {
   display: grid;
   grid-template-columns: $spread-outer-padding-sm 1fr $spread-outer-padding-sm;
   grid-template-rows: $spread-header-size-sm 1fr $spread-footer-size-sm;
   grid-template-areas:
-    'header-left header-content header-right'
-    'body-left body-content body-right'
-    'footer-left footer-content footer-right';
+    "header-left header-content header-right"
+    "body-left body-content body-right"
+    "footer-left footer-content footer-right";
 
   &-header-left,
   &-body-left,

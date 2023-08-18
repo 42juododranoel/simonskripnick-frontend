@@ -52,15 +52,17 @@ const props = defineProps({
   redirect: String,
 })
 
-const path = props.redirect ? props.redirect : `/${props.category.slug.current}/${props.slug.current}`
+const path = props.redirect
+  ? props.redirect
+  : `/${props.category.slug.current}/${props.slug.current}`
 
 const publicationDate = dayjs(props.publishedAt)
-const formatString = dayjs().year() === publicationDate.year() ? 'D MMMM' : 'D MMMM YYYY'
+const formatString = dayjs().year() === publicationDate.year() ? "D MMMM" : "D MMMM YYYY"
 const date = publicationDate.format(formatString)
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .post-list__item {
   padding-bottom: 63px;

@@ -17,7 +17,7 @@ const emotionClass = `embed_code_emotion_${props.emotion}`
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .embed {
   margin-bottom: 36px;

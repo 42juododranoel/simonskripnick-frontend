@@ -1,6 +1,6 @@
 <template>
   <span class="list-item--wrapper">
-    <li><slot/></li>
+    <li><slot /></li>
   </span>
 </template>
 
@@ -10,6 +10,5 @@ const props = defineProps({})
 
 <style lang="scss" scoped>
 .list-item--wrapper {
-  
 }
 </style>

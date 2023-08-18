@@ -9,7 +9,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .h1-wrapper {
   display: flex;

@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .footer {
   font-family: $font-family-sans;

@@ -18,12 +18,12 @@
   </div>
 </template>
 
-<script setup lang="ts">  
+<script setup lang="ts">
 const content = useContent()
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .post {
   margin-bottom: 63px;

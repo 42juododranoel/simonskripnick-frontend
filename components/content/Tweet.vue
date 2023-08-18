@@ -1,9 +1,6 @@
 <template>
   <div class="embed embed_tweet">
-    <Tweet 
-      :tweet-id="props.tweet_id" 
-      :dnt="true"
-    >
+    <Tweet :tweet-id="props.tweet_id" :dnt="true">
       <template v-slot:loading>
         <span>Loading {{ props.title }} tweet…</span>
       </template>
@@ -16,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import Tweet from "vue-tweet";
+import Tweet from "vue-tweet"
 
 const props = defineProps({
   tweet_id: String,

@@ -7,10 +7,7 @@
       :length="props.length"
       :percentage="props.percentage"
     />
-    <EditorSpan
-      v-else-if="category == 'span'"
-      :content="props.content"
-    />
+    <EditorSpan v-else-if="category == 'span'" :content="props.content" />
   </span>
 </template>
 

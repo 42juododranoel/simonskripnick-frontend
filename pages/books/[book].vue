@@ -39,7 +39,7 @@ content.getBook(route.params.book)
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/abstracts/_variables.scss';
+@import "~/assets/scss/abstracts/_variables.scss";
 
 .book {
   color: var(--text-color);
