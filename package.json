@@ -37,5 +37,8 @@
   },
   "overrides": {
     "vue": "latest"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^1.0.2"
   }
 }
