@@ -10,7 +10,7 @@
     </NuxtLink>
     <div class="post-list__item--meta">
       <NuxtLink class="post-list__item--date" :to="path">
-        <span>{{ date }}<span v-if="doShowCategory">,</span></span>
+        <span>{{ date }}<span v-if="doShowCategory || tags.length">,</span></span>
       </NuxtLink>
       <Linkus
         v-if="doShowCategory"
