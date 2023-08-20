@@ -20,8 +20,8 @@ const emotionClass = `embed_code_emotion_${props.emotion}`
 @import "~/assets/scss/abstracts/_variables.scss";
 
 .embed {
-  margin-bottom: 36px;
-  margin-top: 27px;
+  margin-bottom: 45px;
+  display: flex;
 }
 
 .embed_code {
@@ -34,6 +34,8 @@ const emotionClass = `embed_code_emotion_${props.emotion}`
     font-size: 16px;
     line-height: 1.5;
     margin-left: 18px;
+    margin-top: -9px;
+    margin-bottom: -6px;
   }
 
   code {
