@@ -17,7 +17,9 @@ const props = defineProps({
 const doHideImage = ref(props.isSpoiler)
 
 function switchSpoiler() {
-  doHideImage.value = !doHideImage.value
+  if (props.isSpoiler) {
+    doHideImage.value = !doHideImage.value
+  }
 }
 
 </script>
