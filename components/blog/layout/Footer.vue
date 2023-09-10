@@ -15,7 +15,8 @@ const props = defineProps({
 @import "~/assets/scss/abstracts/_variables.scss";
 
 .footer {
-  font-family: $font-family-sans;
+  padding-left: 20px;
+  padding-right: 20px;
 
   &--hr {
     border-top: 1px solid #bebebe;
@@ -25,6 +26,13 @@ const props = defineProps({
     float: right;
     margin-top: 10px;
     margin-bottom: 20px;
+  }
+}
+
+@media (min-width: $width-md) {
+  .footer {
+    padding-left: 15vw;
+    padding-right: 15vw;
   }
 }
 </style>

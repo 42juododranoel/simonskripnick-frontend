@@ -23,7 +23,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Simon Skripnick’s Website",
+      title: "Simon Skripnick’s Blog",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
     },

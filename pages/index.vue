@@ -1,16 +1,15 @@
 <template>
   <div class="row">
     <div class="col">
-      <BlogPostList :do-show-category="true" />
+      <BlogPostList 
+        :do-show-category="true" 
+        :do-show-header="false" 
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-})
-
 // Meta
 const content = useContent()
 content.$reset()
@@ -21,4 +20,9 @@ content.setDefaultCategory()
 
 // Page
 content.listPosts()
+
+// Post Head
+definePageMeta({
+  layout: "blog",
+})
 </script>

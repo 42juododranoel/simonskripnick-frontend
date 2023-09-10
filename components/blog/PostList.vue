@@ -1,27 +1,33 @@
 <template>
   <div class="post-list">
-    <div class="row">
-      <div class="col-8-md">
-        <ContentHeading1 v-typograph-content v-if="content.category.title">{{
-          content.category.title
-        }}</ContentHeading1>
-        <div v-if="content.tags.length" class="post-list--tags">
-          <span class="post-list--tags-prefix">Tags:</span>
-          <span class="post-list--tags-content">
-            <Linkus
-              v-for="(tag, tagIndex) in content.tags"
-              :key="tagIndex"
-              class="post-list--tag"
-              prefix="#"
-              :postfix="tagIndex + 1 !== content.tags.length ? ',' : undefined"
-              :target="`/${tag.category.slug.current}/tags/${tag.slug.current}`"
-              v-typograph-content
-            >
-              {{ tag.title }}
-            </Linkus>
-          </span>
+    <div class="post-list--header" v-if="props.doShowHeader" :style="{ backgroundColor: content.category.backgroundColor }">
+      <div class="row">
+        <div class="col-8-md">
+          <ContentHeading1 v-typograph-content v-if="content.category.title">{{
+            content.category.title
+          }}</ContentHeading1>
+          <div v-if="content.tags.length" class="post-list--tags">
+            <span class="post-list--tags-prefix">Tags:</span>
+            <span class="post-list--tags-content">
+              <Linkus
+                v-for="(tag, tagIndex) in content.tags"
+                :key="tagIndex"
+                class="post-list--tag"
+                prefix="#"
+                :postfix="tagIndex + 1 !== content.tags.length ? ',' : undefined"
+                :target="`/${tag.category.slug.current}/tags/${tag.slug.current}`"
+                v-typograph-content
+              >
+                {{ tag.title }}
+              </Linkus>
+            </span>
+          </div>
         </div>
-        <div class="post-list--content">
+      </div>
+    </div>
+    <div class="post-list--content">
+      <div class="row">
+        <div class="col-8-md">
           <div v-for="(post, postIndex) in content.posts" :key="postIndex">
             <BlogPostListItem
               :title="post.title"
@@ -33,7 +39,7 @@
               :published-at="post.publishedAt"
               :redirect="post.redirect"
             />
-          </div>
+          </div>        
         </div>
       </div>
     </div>
@@ -43,6 +49,7 @@
 <script setup lang="ts">
 const props = defineProps({
   doShowCategory: Boolean,
+  doShowHeader: Boolean,
 })
 
 const content = useContent()
@@ -52,24 +59,44 @@ const content = useContent()
 @import "~/assets/scss/abstracts/_variables.scss";
 
 .post-list {
-  .post-list--header {
-    margin-bottom: 72px;
+  &--header {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 81px;
+    padding-bottom: 36px;
   }
 
-  .post-list--description {
+  &--content {
+    margin-top: 54px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  &--description {
     margin-bottom: 27px;
   }
 
-  .post-list--tags {
-    margin-bottom: 63px;
-  }
-
-  .post-list--tag {
+  &--tag {
     padding-right: 8px;
   }
 
-  .post-list--tags-prefix {
+  &--tags-prefix {
     padding-right: 10px;
   }
 }
+
+@media (min-width: $width-md) {
+  .post-list {
+    &--header {
+      padding-left: 15vw;
+      padding-right: 15vw;
+    }
+
+    &--content {
+      margin-left: 15vw;
+      margin-right: 15vw;
+    }
+  }
+}
+
 </style>

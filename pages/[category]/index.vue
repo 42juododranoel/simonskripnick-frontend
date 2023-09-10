@@ -1,17 +1,16 @@
 <template>
   <div class="row">
     <div class="col">
-      <BlogPostList :do-show-category="false" />
+      <BlogPostList 
+        :do-show-category="false" 
+        :do-show-header="true" 
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
-
-definePageMeta({
-  layout: "blog",
-})
 
 // Meta
 const content = useContent()
@@ -24,4 +23,9 @@ content.getCategory(route.params.category)
 // Page
 content.listCategoryPosts(route.params.category)
 content.listCategoryTags(route.params.category)
+
+// Post Head
+definePageMeta({
+  layout: "blog",
+})
 </script>
