@@ -2,7 +2,20 @@ export default defineNuxtConfig({
   pages: true,
 
   css: ["~/assets/scss/main.scss"],
-  modules: ["@pinia/nuxt", "@nuxtjs/sanity"],
+  modules: [
+    "@pinia/nuxt", 
+    "@nuxtjs/sanity", 
+    ["@nuxtjs/google-fonts", {
+      families: {
+        "Fira Code": true,
+        "PT Sans": true,
+        "PT Serif": true,
+        "PT Sans Caption": {
+          wght: [700],
+        }
+      }
+    }]
+  ],
 
   imports: {
     dirs: ["./stores"],
