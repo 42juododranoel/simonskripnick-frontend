@@ -9,13 +9,5 @@ content.$reset()
 
 // Header
 content.listCategories()
-
-// Page
-
-// Post Head
-definePageMeta({
-  layout: "blog",
-})
+content.setDefaultCategory()
 </script>
-
-<style lang="scss" scoped></style>

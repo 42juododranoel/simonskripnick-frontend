@@ -1,12 +1,8 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <BlogPostList 
-        :do-show-category="true" 
-        :do-show-header="false" 
-      />
-    </div>
-  </div>
+  <BlogPostList 
+    :do-show-category="true" 
+    :do-show-header="false" 
+  />
 </template>
 
 <script setup lang="ts">
@@ -20,9 +16,4 @@ content.setDefaultCategory()
 
 // Page
 content.listPosts()
-
-// Post Head
-definePageMeta({
-  layout: "blog",
-})
 </script>

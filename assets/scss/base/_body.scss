@@ -13,13 +13,16 @@
 }
 
 body {
+  font-family: $font-family-sans;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+  hyphens: manual;
   color: var(--text-color);
 }
 
-@media (min-width: $width-sm) {
+@media (min-width: $width-md) {
   body {
-    font-size: $font-size-sm;
-    line-height: $line-height-sm;
+    hyphens: none;
   }
 }
 

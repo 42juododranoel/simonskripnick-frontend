@@ -8,18 +8,17 @@
       </div>   
       <div class="row">
         <div class="col-10-md editor--description">
-          <ContentParagraph
-            v-typograph-content
-            v-for="(paragraph, paragraphIndex) in page.descriptions"
-            :key="paragraphIndex"
-          >
-            {{ paragraph }}
+          <ContentParagraph v-typograph-content>
+            What makes a good tempo? Mainly two things: don’t make your sentences too lengthy, and don’t repeat same-length sentences too many times. This application highlights the length of your sentences and predicts the expected fatigue of your reader — and the more you type, the better it understands your writing style. Note on data protection: I don’t have means to read what you paste here, and it is not saved anywhere.
           </ContentParagraph>
         </div>
       </div>
     </div>
     <div class="editor--body">
       <div class="row">
+        <!-- <div class="editor--buttons">
+          <button class="editor--button" @click="say">Example</button>
+        </div> -->
         <div class="col-10-md">
           <editor-content class="editor--textarea" :editor="editor" />
           <br />
@@ -34,8 +33,7 @@ import { useEditor, EditorContent } from "@tiptap/vue-3"
 import Paragraph from "@tiptap/extension-paragraph"
 import Document from "@tiptap/extension-document"
 import Text from "@tiptap/extension-text"
-import { mergeAttributes } from "@tiptap/core"
-import { Mark } from "@tiptap/core"
+import { mergeAttributes, Mark } from "@tiptap/core"
 
 const FatigueMark = Mark.create({
   name: "fatigue",
@@ -89,27 +87,41 @@ const initialContent = {
       "content": [
         {
           "type": "text",
-          "text": "How is it going? Nice! I am here.",
-          "marks": [
-            {
-              "type": "fatigue"
-            },
-            {
-              "type": "length"
-            }
-          ]
+          "text": "In my younger and more vulnerable years my father gave me some advice that I’ve been turning over in my mind ever since.",
+          "marks": []
         }
       ],
     },
     {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "How is it going? Nice! I am here. Ha-ha."
-        }
-      ]
-    }
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "“Whenever you feel like criticizing anyone,” he told me, “just remember that all the people in this world haven’t had the advantages that you’ve had.”",
+            "marks": []
+          }
+        ],
+    },  
+    {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "He didn’t say any more, but we’ve always been unusually communicative in a reserved way, and I understood that he meant a great deal more than that. In consequence, I’m inclined to reserve all judgements, a habit that has opened up many curious natures to me and also made me the victim of not a few veteran bores. The abnormal mind is quick to detect and attach itself to this quality when it appears in a normal person, and so it came about that in college I was unjustly accused of being a politician, because I was privy to the secret griefs of wild, unknown men. Most of the confidences were unsought—frequently I have feigned sleep, preoccupation, or a hostile levity when I realized by some unmistakable sign that an intimate revelation was quivering on the horizon; for the intimate revelations of young men, or at least the terms in which they express them, are usually plagiaristic and marred by obvious suppressions. Reserving judgements is a matter of infinite hope. I am still a little afraid of missing something if I forget that, as my father snobbishly suggested, and I snobbishly repeat, a sense of the fundamental decencies is parcelled out unequally at birth.",
+            "marks": []
+          }
+        ],
+    },  
+    {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "And, after boasting this way of my tolerance, I come to the admission that it has a limit. Conduct may be founded on the hard rock or the wet marshes, but after a certain point I don’t care what it’s founded on. When I came back from the East last autumn I felt that I wanted the world to be in uniform and at a sort of moral attention forever; I wanted no more riotous excursions with privileged glimpses into the human heart. Only Gatsby, the man who gives his name to this book, was exempt from my reaction—Gatsby, who represented everything for which I have an unaffected scorn. If personality is an unbroken series of successful gestures, then there was something gorgeous about him, some heightened sensitivity to the promises of life, as if he were related to one of those intricate machines that register earthquakes ten thousand miles away. This responsiveness had nothing to do with that flabby impressionability which is dignified under the name of the “creative temperament”—it was an extraordinary gift for hope, a romantic readiness such as I have never found in any other person and which it is not likely I shall ever find again. No—Gatsby turned out all right at the end; it is what preyed on Gatsby, what foul dust floated in the wake of his dreams that temporarily closed out my interest in the abortive sorrows and short-winded relations of men.",
+            "marks": []
+          }
+        ],
+    },  
   ]
 }
 
@@ -125,31 +137,16 @@ const editor = useEditor({
   onUpdate: ({ editor }) => {
     const json = editor.getJSON()
     const { from, to } = editor.state.selection
-
-    console.log("json:", json)
     const { data } = $fetch("/api/v1.0.0/analyzer/analyze-document", {
       method: "POST",
       body: json,
       onResponse({ request, response, options }) {
-        console.log("response:", response._data)
         editor.commands.setContent(response._data)
         editor.commands.setTextSelection({ from, to })    
       },
-      onResponseError({ request, response, options }) {}
     })
   },
 })
-
-const content = useContent()
-content.setDefaultCategory()
-
-const page = {
-  descriptions: [
-    "This text editing application is my take on Gary Provost’s brilliant “Write Music” idiom. The lack of tempo is — according to me — the number three most often seen editing flaw in fiction writing.",
-    "What makes a good tempo? Mainly two things: don’t make your sentences too lengthy, and don’t repeat same-length sentences too many times. This application highlights the length of your sentences and predicts the expected fatigue of your reader. Green means higher tempo, purple means lower tempo, and blue is somewhere in between. The greyer your text, the bigger the predicted fatigue of your reader.",
-    "Since this application utilizes machine learning algorithms, the more you type, the better it understands your writing style. Try to paste here at least 1000 words — you may not see correctly adjusted results before that point. Hopefully, this tool can help you see the big picture without re-reading every time. Be aware also that this application is stateless — I can’t read whatever you paste here, and it is not saved anywhere. The source code is open.",
-  ],
-}
 </script>
 
 <style lang="scss">
@@ -171,19 +168,46 @@ const page = {
   }
 
   &--textarea {
-    background-color: #dcdcdc;
+    background-color: #f0f0f0;
     width: 100%;
     height: 100%;
-
     padding-left: 18px;
     padding-right: 18px;
-    padding-top: 27px;
-    padding-bottom: 36px;
-    border-radius: 9px;
+    padding-top: 18px;
+    padding-bottom: 27px;
+    border-radius: 3px;
   }
 
   &--description .p--wrapper {
     margin-bottom: 36px;
+  }
+
+  &--buttons {
+    margin-bottom: 18px;
+  }
+
+  &--button {
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 3px 9px;
+    border-radius: 3px;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  &--button:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+  }
+
+  &--paragraph {
+    margin-bottom: 9px;
   }
 
   &--sentence__length1 {

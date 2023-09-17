@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="post-list--content">
+    <div class="post-list--body">
       <div class="row">
         <div class="col-8-md">
           <div v-for="(post, postIndex) in content.posts" :key="postIndex">
@@ -66,7 +66,7 @@ const content = useContent()
     padding-bottom: 36px;
   }
 
-  &--content {
+  &--body {
     margin-top: 54px;
     margin-left: 20px;
     margin-right: 20px;
@@ -92,7 +92,7 @@ const content = useContent()
       padding-right: 15vw;
     }
 
-    &--content {
+    &--body {
       margin-left: 15vw;
       margin-right: 15vw;
     }

@@ -1,20 +1,20 @@
 <template>
-  <div class="post-list__item">
-    <NuxtLink class="post-list__item--content" :to="path">
-      <div class="post-list__item--title">
+  <div class="post-list-item">
+    <NuxtLink class="post-list-item--content" :to="path">
+      <div class="post-list-item--title">
         <ContentHeading2 v-typograph-content>{{ title }}</ContentHeading2>
       </div>
-      <div class="post-list__item--description">
+      <div class="post-list-item--description">
         <ContentParagraph v-typograph-content>{{ description }}</ContentParagraph>
       </div>
     </NuxtLink>
-    <div class="post-list__item--meta">
-      <NuxtLink class="post-list__item--date" :to="path">
+    <div class="post-list-item--meta">
+      <NuxtLink class="post-list-item--date" :to="path">
         <span>{{ date }}<span v-if="doShowCategory || tags.length">,</span></span>
       </NuxtLink>
       <Linkus
         v-if="doShowCategory"
-        class="post-list__item--category"
+        class="post-list-item--category"
         prefix="#"
         :postfix="tags === undefined || tags.length == 0 ? undefined : ','"
         :target="`/${category.slug.current}`"
@@ -25,7 +25,7 @@
       <Linkus
         v-for="(tag, tagIndex) in tags"
         :key="tagIndex"
-        class="post-list__item--tag"
+        class="post-list-item--tag"
         prefix="#"
         :postfix="tagIndex + 1 !== tags.length ? ',' : undefined"
         :target="`/${category.slug.current}/tags/${tag.slug.current}`"
@@ -64,7 +64,7 @@ const date = publicationDate.format(formatString)
 <style lang="scss" scoped>
 @import "~/assets/scss/abstracts/_variables.scss";
 
-.post-list__item {
+.post-list-item {
   padding-bottom: 63px;
 
   &--meta {
@@ -105,9 +105,9 @@ const date = publicationDate.format(formatString)
   &:hover {
     cursor: pointer;
 
-    .post-list__item--title,
-    .post-list__item--description,
-    .post-list__item--date {
+    .post-list-item--title,
+    .post-list-item--description,
+    .post-list-item--date {
       color: var(--text-color-hover);
     }
   }

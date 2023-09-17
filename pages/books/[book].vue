@@ -1,7 +1,6 @@
 <template>
   <div
     class="book"
-    :class="`book_${content.book.slug.current}`"
     :style="{
       '--paper-color': content.book.paperColor,
       '--text-color': content.book.textColor,
@@ -28,13 +27,16 @@
 </template>
 
 <script setup lang="ts">
+// Meta
 const route = useRoute()
-
-definePageMeta({
-  layout: "book",
-})
-
 const content = useContent()
+content.$reset()
+
+// Header
+content.listCategories()
+content.setDefaultCategory()
+
+// Page
 content.getBook(route.params.book)
 </script>
 
