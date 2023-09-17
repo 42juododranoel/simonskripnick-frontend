@@ -112,6 +112,6 @@ test("custom mark serializer with setup", () => {
   })
 
   expect(wrapper.html()).toMatch(
-    '<p>OK.<br>A <a href="https://google.com" data-foo="bar">link</a>.</p>',
+    "<p>OK.<br>A <a href=\"https://google.com\" data-foo=\"bar\">link</a>.</p>",
   )
 })

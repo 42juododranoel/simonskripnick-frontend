@@ -39,6 +39,11 @@ const content = useContent()
     padding-bottom: 36px;
   }
 
+  &--body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .h2-wrapper {
     margin-bottom: 45px;
     margin-top: 63px;
@@ -46,11 +51,6 @@ const content = useContent()
 
   .h3-wrapper {
     margin-top: 45px;
-  }
-
-  &--body {
-    margin-left: 20px;
-    margin-right: 20px;
   }
 
   &--body .p-wrapper {

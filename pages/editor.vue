@@ -1,8 +1,18 @@
 <template>
-  <EditorApp />
+  <Editor />
 </template>
 
 <script setup lang="ts">
+// Meta
+const content = useContent()
+content.$reset()
+
+// Header
+content.listCategories()
+
+// Page
+
+// Post Head
 definePageMeta({
   layout: "blog",
 })

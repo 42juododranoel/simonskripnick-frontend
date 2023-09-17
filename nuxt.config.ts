@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   css: ["~/assets/scss/main.scss"],
   modules: [
     "@pinia/nuxt", 
-    "@nuxtjs/sanity", 
+    "@nuxtjs/sanity",
+    "nuxt-proxy",
     ["@nuxtjs/google-fonts", {
       families: {
         "Fira Code": true,
@@ -34,11 +35,13 @@ export default defineNuxtConfig({
     dataset: "production",
   },
 
-  nitro: {
-    routeRules: {
-      "/proxy/editor/**": {
-        proxy: { to: "https://simonskripnick-editor.onrender.com/**" },
-      },
-    },
-  },
+  proxy: {
+    options: {
+      target: "https://simonskripnick-editor.onrender.com",
+      changeOrigin: true,
+      pathFilter: [
+        "/api/v1.0.0/analyzer/analyze-document",
+      ]
+    }
+  }
 })

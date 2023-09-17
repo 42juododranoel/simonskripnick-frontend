@@ -2,21 +2,17 @@ import { defineStore } from "pinia"
 
 export const useEditor = defineStore("editor", {
   state: () => ({
-    content: "" as string,
-    context: {} as object,
-    paragraphs: {} as object,
+    document: {} as object,
   }),
 
   actions: {
-    async analyze(content) {
-      const { data } = await useFetch("/proxy/editor/api/v1.0.0/analyzer/analyze-content", {
+    async analyze(document) {
+      const { data } = useFetch("/proxy/editor/api/v1.0.0/analyzer/analyze-content", {
         method: "POST",
-        body: { content: content },
+        body: document,
       })
       if (data.value) {
-        this.content = data.value.content
-        this.paragraphs = data.value.paragraphs
-        this.context = data.value.context
+        this.document = data.value.document
       }
     },
   },
