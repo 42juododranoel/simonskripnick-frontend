@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-10-md editor--description">
           <ContentParagraph v-typograph-content>
-            What makes a good tempo? Mainly two things: don’t make your sentences too lengthy, and don’t repeat same-length sentences too many times. This application highlights the length of your sentences and predicts the expected fatigue of your reader — and the more you type, the better it understands your writing style. Note on data protection: I don’t have means to read what you paste here, and it is not saved anywhere.
+            What makes a good tempo? Mainly two things: don’t make your sentences too lengthy and don’t repeat same-length sentences too many times. This application highlights the length of your sentences and predicts the expected fatigue of your reader — and the more you type, the better it understands your writing style. Note on data protection: I don’t have means to read what you paste here, and it is not saved anywhere.
           </ContentParagraph>
         </div>
       </div>
@@ -210,41 +210,40 @@ const editor = useEditor({
     margin-bottom: 9px;
   }
 
+  // Short
   &--sentence__length1 {
-    background-color: hsl(100, 100%, 85%);
+    background-color: hsl(110, 90%, 88%);
   }
   &--sentence__length2 {
-    background-color: hsl(130, 100%, 85%);
+    background-color: hsl(120, 75%, 80%);
   }
+
+  // Medium
   &--sentence__length3 {
-    background-color: hsl(160, 100%, 85%);
+    background-color: hsl(200, 100%, 90%);
   }
   &--sentence__length4 {
-    background-color: hsl(180, 100%, 85%);
+    background-color: hsl(210, 100%, 88%);
   }
   &--sentence__length5 {
-    background-color: hsl(220, 100%, 85%);
+    background-color: hsl(220, 100%, 86%);
   }
   &--sentence__length6 {
-    background-color: hsl(240, 100%, 85%);
+    background-color: hsl(230, 100%, 84%);
   }
   &--sentence__length7 {
-    background-color: hsl(260, 100%, 85%);
+    background-color: hsl(240, 100%, 82%);
   }
+
+  // Long
   &--sentence__length8 {
-    background-color: hsl(280, 100%, 85%);
+    background-color: hsl(340, 75%, 90%);
   }
   &--sentence__length9 {
-    background-color: hsl(300, 100%, 85%);
+    background-color: hsl(350, 50%, 85%);
   }
   &--sentence__length10 {
-    background-color: hsl(320, 100%, 85%);
-  }
-  &--sentence__length11 {
-    background-color: hsl(340, 100%, 85%);
-  }
-  &--sentence__length12 {
-    background-color: hsl(360, 100%, 85%);
+    background-color: hsl(360, 50%, 80%);
   }
 
   @for $index from 0 through 100 {
