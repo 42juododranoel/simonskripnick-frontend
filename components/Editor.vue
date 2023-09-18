@@ -3,7 +3,7 @@
     <div class="editor--header">
       <div class="row">
         <div class="col-8-md">
-          <ContentHeading1 v-typograph-content>Text Tempo Editor</ContentHeading1>
+          <ContentHeading1 v-typograph-content>Textflowrhyme Editor</ContentHeading1>
         </div>
       </div>   
       <div class="row">
@@ -33,12 +33,13 @@ import { useEditor, EditorContent } from "@tiptap/vue-3"
 import Paragraph from "@tiptap/extension-paragraph"
 import Document from "@tiptap/extension-document"
 import Text from "@tiptap/extension-text"
+import History from '@tiptap/extension-history'
 import { mergeAttributes, Mark } from "@tiptap/core"
 
 const FatigueMark = Mark.create({
   name: "fatigue",
   renderHTML({ HTMLAttributes }) {
-    return ["span", {class: `editor--fatigue__length${HTMLAttributes.value}`}, 0]
+    return ["span", {class: `editor--fatigue__value${HTMLAttributes.value}`}, 0]
   },
   addAttributes() {
     return {
@@ -125,26 +126,49 @@ const initialContent = {
   ]
 }
 
+const updateTimedelta = 1000
+
+let lastUpdatedAt = new Date().getTime()
+
+function updateEditor(editor) {
+  const json = editor.getJSON()
+  const { from, to } = editor.state.selection
+  const { data } = $fetch("/api/v1.0.0/analyzer/analyze-document", {
+    method: "POST",
+    body: json,
+    onResponse({ request, response, options }) {
+      editor.commands.setContent(response._data)
+      editor.commands.setTextSelection({ from, to })    
+    },
+  })
+}
+
+function maybeUpdate(editor) {
+  const maybeUpdatedAt = new Date().getTime()
+  const currentTimedelta = maybeUpdatedAt - lastUpdatedAt
+
+  if (currentTimedelta > updateTimedelta) {
+      console.log("updating")
+      updateEditor(editor)
+    }
+}
+
 const editor = useEditor({
   content: initialContent,
   extensions: [
-    FatigueMark,
     LengthMark,
+    FatigueMark,
     EditorDocument,
     EditorParagraph,
     EditorText,
+    History,
   ],
   onUpdate: ({ editor }) => {
-    const json = editor.getJSON()
-    const { from, to } = editor.state.selection
-    const { data } = $fetch("/api/v1.0.0/analyzer/analyze-document", {
-      method: "POST",
-      body: json,
-      onResponse({ request, response, options }) {
-        editor.commands.setContent(response._data)
-        editor.commands.setTextSelection({ from, to })    
-      },
-    })
+    lastUpdatedAt = new Date().getTime()
+    setTimeout(function () { maybeUpdate(editor) }, updateTimedelta)
+  },
+  onCreate: ({ editor }) => {
+    updateEditor(editor)
   },
 })
 </script>
@@ -237,17 +261,17 @@ const editor = useEditor({
 
   // Long
   &--sentence__length8 {
-    background-color: hsl(340, 75%, 90%);
+    background-color: hsl(345, 75%, 90%);
   }
   &--sentence__length9 {
     background-color: hsl(350, 50%, 85%);
   }
   &--sentence__length10 {
-    background-color: hsl(360, 50%, 80%);
+    background-color: hsl(355, 50%, 80%);
   }
 
   @for $index from 0 through 100 {
-    &--span__fatigue#{$index} {
+    &--fatigue__value#{$index} {
       background-color: rgba(64, 64, 64, $index * 0.0125);
     }
   }
