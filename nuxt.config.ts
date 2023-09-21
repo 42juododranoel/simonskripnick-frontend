@@ -1,11 +1,13 @@
 export default defineNuxtConfig({
   pages: true,
 
-  css: ["~/assets/scss/main.scss"],
+  css: [
+    'modern-normalize/modern-normalize.css',
+    "~/assets/scss/main.scss",
+  ],
   modules: [
     "@pinia/nuxt", 
     "@nuxtjs/sanity",
-    "nuxt-proxy",
     ["@nuxtjs/google-fonts", {
       families: {
         "Fira Code": true,
@@ -15,7 +17,8 @@ export default defineNuxtConfig({
           wght: [700],
         }
       }
-    }]
+    }],
+    "nuxt-proxy",
   ],
 
   imports: {
@@ -24,7 +27,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Simon Skripnick’s Blog",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
     },

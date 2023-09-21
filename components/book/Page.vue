@@ -2,8 +2,8 @@
   <div
     class="page"
     :class="{
-      'page_with-leadin': withLeadin,
-      'page_with-initial': withInitial,
+      'page__leadin': withLeadin,
+      'page__initial': withInitial,
     }"
   >
     <ContentContainer :blocks="content" />

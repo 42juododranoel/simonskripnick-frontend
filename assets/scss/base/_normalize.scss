@@ -1,14 +1,57 @@
-* {
-  all: unset;
-  display: revert;
+// Links
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
-html {
-  box-sizing: border-box;
+a:hover {
+  cursor: pointer;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: unset;
+  font-family: $font-family-caption;
+  font-weight: 700;
+}
+
+
+// Images
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+// Rulers
+
+hr {
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+// Figures
+
+figure {
+  margin: unset;
+}
+
+
+// Preformatted
+
+pre {
+  white-space: unset;
 }

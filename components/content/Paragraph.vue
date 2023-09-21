@@ -22,43 +22,4 @@
     margin-bottom: -7px;
   }
 }
-
-.layout_book {
-  .p-wrapper {
-    text-indent: 27px;
-  }
-
-  .page_with-leadin {
-    .p-wrapper:first-of-type {
-      text-indent: unset;
-    }
-  }
-
-  .page_with-initial {
-    .p-wrapper:first-of-type {
-      p::first-letter {
-        font-size: 150%;
-      }
-    }
-  }
-}
-
-@media (min-width: $width-lg) {
-  .p-wrapper {
-    margin-bottom: 27px;
-    font-size: $font-size-lg;
-    line-height: $line-height-lg;
-
-    p {
-      margin-top: -18px;
-      margin-bottom: -10px;
-    }
-  }
-
-  .layout_book {
-    .p-wrapper {
-      text-indent: 45px;
-    }
-  }
-}
 </style>

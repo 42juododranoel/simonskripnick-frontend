@@ -40,12 +40,32 @@ content.setDefaultCategory()
 content.getBook(route.params.book)
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~/assets/scss/abstracts/_variables.scss";
 
 .book {
   color: var(--text-color);
+  font-family: $font-family-serif;
   --gradient-target: var(--gradient-target-sm);
+
+  .p-wrapper {
+    text-indent: 27px;
+  }
+
+  .page__leadin {
+    .p-wrapper:first-of-type {
+      text-indent: unset;
+    }
+  }
+
+  .page__initial {
+    .p-wrapper:first-of-type {
+      p::first-letter {
+        font-size: 150%;
+      }
+    }
+  }
+
 }
 
 @media (min-width: $width-md) {

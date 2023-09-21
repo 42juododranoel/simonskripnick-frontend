@@ -15,4 +15,10 @@
 
 <script setup lang="ts">
 const content = useContent()
+
+useHead({
+  titleTemplate: (title) => {
+    return title ? `${title}. Simon Skripnick` : 'Simon Skripnick';
+  }
+})
 </script>
