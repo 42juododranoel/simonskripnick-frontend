@@ -15,7 +15,7 @@
             :key="categoryIndex"
             class="header--section"
           >
-            <Linkus :target="`/${category.slug.current}`">{{ category.title }}</Linkus>
+            <Ahref prefix="🞵" :target="`/${category.slug.current}`">{{ category.title }}</Ahref>
           </span>
         </span>
       </span>

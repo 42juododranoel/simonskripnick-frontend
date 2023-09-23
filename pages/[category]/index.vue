@@ -16,6 +16,10 @@ content.listCategories()
 content.getCategory(route.params.category)
 
 // Page
-content.listCategoryPosts(route.params.category)
+if ("tags" in route.query) {
+  content.listCategoryTagPosts(route.params.category, route.query.tags)
+} else {
+  content.listCategoryPosts(route.params.category)
+}
 content.listCategoryTags(route.params.category)
 </script>

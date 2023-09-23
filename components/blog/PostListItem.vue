@@ -12,27 +12,27 @@
       <NuxtLink class="post-list-item--date" :to="path">
         <span>{{ date }}<span v-if="doShowCategory || tags.length">,</span></span>
       </NuxtLink>
-      <Linkus
+      <Ahref
         v-if="doShowCategory"
         class="post-list-item--category"
-        prefix="#"
+        prefix="🞵"
         :postfix="tags === undefined || tags.length == 0 ? undefined : ','"
         :target="`/${category.slug.current}`"
         v-typograph-content
       >
         {{ category.title }}
-      </Linkus>
-      <Linkus
+      </Ahref>
+      <Ahref
         v-for="(tag, tagIndex) in tags"
         :key="tagIndex"
         class="post-list-item--tag"
         prefix="#"
         :postfix="tagIndex + 1 !== tags.length ? ',' : undefined"
-        :target="`/${category.slug.current}/tags/${tag.slug.current}`"
+        :target="`/${category.slug.current}?tags=${tag.slug.current}`"
         v-typograph-content
       >
         {{ tag.title }}
-      </Linkus>
+      </Ahref>
     </div>
   </div>
 </template>

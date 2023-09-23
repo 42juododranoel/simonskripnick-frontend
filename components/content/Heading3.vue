@@ -21,16 +21,4 @@
     margin-bottom: -7px;
   }
 }
-
-@media (min-width: $width-lg) {
-  .h3-wrapper {
-    margin-bottom: 27px;
-    font-size: $font-size-lg;
-
-    h3 {
-      margin-top: -17px;
-      margin-bottom: -10px;
-    }
-  }
-}
 </style>

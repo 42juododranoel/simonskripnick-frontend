@@ -2,19 +2,19 @@
   <div class="post">
     <div class="post--header" :style="{ backgroundColor: content.category.backgroundColor }">
       <div class="row">
-        <div class="col-8-md">
+        <div class="col-8-md col-7-lg">
           <ContentHeading1 v-typograph-content>{{ content.post.title }}</ContentHeading1>
         </div>
       </div>
       <div class="row">
-        <div class="col-10-md">
+        <div class="col-10-md col-8-lg">
           <ContentParagraph v-typograph-content>{{ content.post.description }}</ContentParagraph>
         </div>
       </div>
     </div>
     <div class="post--body">
       <div class="row">
-        <div class="col-8-md">
+        <div class="col-8-md col-7-lg">
           <ContentContainer :blocks="content.post.content" />
         </div>
       </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+// Meta
 const content = useContent()
 </script>
 

@@ -290,5 +290,4 @@ const editor = useEditor({
     }
   }
 }
-
 </style>

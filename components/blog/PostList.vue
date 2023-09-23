@@ -2,24 +2,24 @@
   <div class="post-list">
     <div class="post-list--header" v-if="props.doShowHeader" :style="{ backgroundColor: content.category.backgroundColor }">
       <div class="row">
-        <div class="col-8-md">
+        <div class="col-8-md col-7-lg">
           <ContentHeading1 v-typograph-content v-if="content.category.title">{{
             content.category.title
           }}</ContentHeading1>
           <div v-if="content.tags.length" class="post-list--tags">
             <span class="post-list--tags-prefix">Tags:</span>
             <span class="post-list--tags-content">
-              <Linkus
+              <Ahref
                 v-for="(tag, tagIndex) in content.tags"
                 :key="tagIndex"
                 class="post-list--tag"
                 prefix="#"
                 :postfix="tagIndex + 1 !== content.tags.length ? ',' : undefined"
-                :target="`/${tag.category.slug.current}/tags/${tag.slug.current}`"
+                :target="`/${tag.category.slug.current}?tags=${tag.slug.current}`"
                 v-typograph-content
               >
                 {{ tag.title }}
-              </Linkus>
+              </Ahref>
             </span>
           </div>
         </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="post-list--body">
       <div class="row">
-        <div class="col-8-md">
+        <div class="col-8-md col-7-lg">
           <div v-for="(post, postIndex) in content.posts" :key="postIndex">
             <BlogPostListItem
               :title="post.title"

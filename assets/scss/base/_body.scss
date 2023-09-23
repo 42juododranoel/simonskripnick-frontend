@@ -1,12 +1,12 @@
 :root {
-  --linkus-text-color: rgba(26, 105, 118, 1);
-  --linkus-underline-color: rgba(26, 105, 118, 0.4);
+  --ahref-text-color: rgba(26, 105, 118, 1);
+  --ahref-underline-color: rgba(26, 105, 118, 0.4);
 
-  --linkus-text-color-active: rgba(124, 89, 68, 1);
-  --linkus-underline-color-active: rgba(124, 89, 68, 0.8);
+  --ahref-text-color-active: rgba(124, 89, 68, 1);
+  --ahref-underline-color-active: rgba(124, 89, 68, 0.8);
 
-  --linkus-text-color-hover: rgba(74, 93, 35, 1);
-  --linkus-underline-color-hover: rgba(74, 93, 35, 0.4);
+  --ahref-text-color-hover: rgba(74, 93, 35, 1);
+  --ahref-underline-color-hover: rgba(74, 93, 35, 0.4);
 
   --text-color: rgba(35, 38, 39, 1);
   --text-color-hover: rgba(35, 38, 39, 0.7);
@@ -23,12 +23,5 @@ body {
 @media (min-width: $width-md) {
   body {
     hyphens: none;
-  }
-}
-
-@media (min-width: $width-lg) {
-  body {
-    font-size: $font-size-lg;
-    line-height: $line-height-lg;
   }
 }
