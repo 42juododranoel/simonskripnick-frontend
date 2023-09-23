@@ -53,12 +53,12 @@ const FatigueMark = Mark.create({
 const LengthMark = Mark.create({
   name: "length",
   renderHTML({ HTMLAttributes }) {
-    return ["span", {class: `editor--sentence__length${HTMLAttributes.value}`}, 0]
+    return ["span", {class: `editor--sentence__length-${HTMLAttributes.value}`}, 0]
   },
   addAttributes() {
     return {
       value: {
-        default: 0,
+        default: "",
       },
     }
   },
@@ -192,14 +192,14 @@ const editor = useEditor({
   }
 
   &--textarea {
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
     width: 100%;
     height: 100%;
     padding-left: 18px;
     padding-right: 18px;
     padding-top: 18px;
     padding-bottom: 27px;
-    border-radius: 3px;
+    border-radius: 6px;
   }
 
   &--description .p--wrapper {
@@ -231,43 +231,19 @@ const editor = useEditor({
   }
 
   &--paragraph {
+    margin-top: 0;
     margin-bottom: 9px;
   }
 
-  // Short
-  &--sentence__length1 {
-    background-color: hsl(110, 90%, 88%);
+  // Lengths
+  &--sentence__length-short {
+    background-color: hsl(100, 90%, 90%);
   }
-  &--sentence__length2 {
-    background-color: hsl(120, 75%, 80%);
+  &--sentence__length-medium {
+    background-color: hsl(210, 90%, 90%);
   }
-
-  // Medium
-  &--sentence__length3 {
-    background-color: hsl(200, 100%, 90%);
-  }
-  &--sentence__length4 {
-    background-color: hsl(210, 100%, 88%);
-  }
-  &--sentence__length5 {
-    background-color: hsl(220, 100%, 86%);
-  }
-  &--sentence__length6 {
-    background-color: hsl(230, 100%, 84%);
-  }
-  &--sentence__length7 {
-    background-color: hsl(240, 100%, 82%);
-  }
-
-  // Long
-  &--sentence__length8 {
-    background-color: hsl(345, 75%, 90%);
-  }
-  &--sentence__length9 {
-    background-color: hsl(350, 50%, 85%);
-  }
-  &--sentence__length10 {
-    background-color: hsl(355, 50%, 80%);
+  &--sentence__length-long {
+    background-color: hsl(280, 90%, 90%);
   }
 
   @for $index from 0 through 100 {
@@ -275,6 +251,10 @@ const editor = useEditor({
       background-color: rgba(64, 64, 64, $index * 0.0125);
     }
   }
+}
+
+.ProseMirror:focus {
+  outline: none;
 }
 
 @media (min-width: $width-md) {
